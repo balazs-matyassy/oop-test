@@ -66,4 +66,12 @@ public class Cargo {
     public void setValue(int value) {
         this.value = value;
     }
+
+    public int getGrossValue() {
+        return value + getTax();
+    }
+
+    public int getTax() {
+        return (int) Math.round(value * 0.1);
+    }
 }
