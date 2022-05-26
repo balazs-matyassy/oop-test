@@ -78,4 +78,15 @@ public class Cargo {
             return 0;
         }
     }
+
+    @Override
+    public String toString() {
+        return "Cargo{" +
+                "date='" + date + '\'' +
+                ", source='" + source + '\'' +
+                ", destination='" + destination + '\'' +
+                ", type='" + type + '\'' +
+                ", value=" + value +
+                '}';
+    }
 }

@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -28,6 +29,8 @@ public class Main {
         // Ha az egyik paraméter nincs megadva (null), akkor ne szűrjünk a paraméter szerint.
         // A CargoFilter rendelkezzen egy void filter(Collection<Cargo> cargos) metódussal.
         // Nem illeszkedő elemeket töröljük.
+        Scanner scanner = new Scanner(System.in);
+
         try {
             List<Cargo> cargos = new ArrayList<>();
 
@@ -36,6 +39,16 @@ public class Main {
                 while ((line = reader.readLine()) != null) {
                     cargos.add(new Cargo(line));
                 }
+            }
+
+            System.out.println("Kérek egy szűrőt (az egyes feltételek vesszővel vannak elválasztva).");
+            String filterValues = scanner.nextLine();
+            CargoFilter filter = new CargoFilter(filterValues);
+            filter.filter(cargos);
+
+            System.out.println("A feltételeknek megfelelő szállítmányok:");
+            for (Cargo cargo : cargos) {
+                System.out.println(cargo);
             }
         } catch (IOException e) {
 
