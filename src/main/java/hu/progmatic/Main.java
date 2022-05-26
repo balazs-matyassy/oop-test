@@ -9,5 +9,6 @@ public class Main {
         //      - a csv fájl egy sorából minden értéket beállító (TEST)
         // 3. Legyenek getterek + setterek
         // 4. Legyen egy grossValue (10% adó kerekítve) és egy tax (10% adó kerekítve) számított getter.
+        // 5. Az "Élelmiszer"-ek adója 0%.
     }
 }
