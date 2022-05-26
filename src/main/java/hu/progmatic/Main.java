@@ -18,6 +18,16 @@ public class Main {
         // 3. Legyenek getterek + setterek
         // 4. Legyen egy grossValue (10% adó kerekítve) és egy tax (10% adó kerekítve) számított getter.
         // 5. Az "Élelmiszer"-ek adója 0%.
+        // 6. Hozzunk lére egy CargoFilter osztályt
+        // A szűrés a következő paraméterek szerint működjön:
+        //      - date (-tól), date (-ig)
+        //      - source
+        //      - destination
+        //      - type
+        //      - value (-tól), value (-ig)
+        // Ha az egyik paraméter nincs megadva (null), akkor ne szűrjünk a paraméter szerint.
+        // A CargoFilter rendelkezzen egy void filter(Collection<Cargo> cargos) metódussal.
+        // Nem illeszkedő elemeket töröljük.
         try {
             List<Cargo> cargos = new ArrayList<>();
 
