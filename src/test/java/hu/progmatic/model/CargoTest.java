@@ -39,7 +39,7 @@ class CargoTest {
     }
 
     @Test
-    void getGrossValue() {
+    void whenNotFood_thenGrossValuePlusTenPercent() {
         Cargo cargo = new Cargo("2250.01.01", "Hold", "Ganymedes", "Nyersanyagok", 1000);
 
         assertEquals(1100, cargo.getGrossValue());
@@ -50,7 +50,18 @@ class CargoTest {
     }
 
     @Test
-    void getTax() {
+    void whenFood_thenGrossValueUnchanged() {
+        Cargo cargo = new Cargo("2250.01.01", "Hold", "Ganymedes", "Élelmiszer", 1000);
+
+        assertEquals(1000, cargo.getGrossValue());
+        cargo.setValue(1004);
+        assertEquals(1004, cargo.getGrossValue());
+        cargo.setValue(1005);
+        assertEquals(1005, cargo.getGrossValue());
+    }
+
+    @Test
+    void whenNotFood_thenTaxTenPercent() {
         Cargo cargo = new Cargo("2250.01.01", "Hold", "Ganymedes", "Nyersanyagok", 1000);
 
         assertEquals(100, cargo.getTax());
@@ -58,5 +69,16 @@ class CargoTest {
         assertEquals(100, cargo.getTax());
         cargo.setValue(1005);
         assertEquals(101, cargo.getTax());
+    }
+
+    @Test
+    void whenFood_thenTaxZeroPercent() {
+        Cargo cargo = new Cargo("2250.01.01", "Hold", "Ganymedes", "Élelmiszer", 1000);
+
+        assertEquals(0, cargo.getTax());
+        cargo.setValue(1004);
+        assertEquals(0, cargo.getTax());
+        cargo.setValue(1005);
+        assertEquals(0, cargo.getTax());
     }
 }

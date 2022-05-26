@@ -72,6 +72,10 @@ public class Cargo {
     }
 
     public int getTax() {
-        return (int) Math.round(value * 0.1);
+        if (!type.equals("Élelmiszer")) {
+            return (int) Math.round(value * 0.1);
+        } else {
+            return 0;
+        }
     }
 }
