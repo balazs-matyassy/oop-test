@@ -1,11 +1,17 @@
 package hu.progmatic.constructor;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Person {
     private String name;
     private int birthYear;
     private int age;
     private String[] pets;
     private boolean hasCat;
+
+    private List<VetVisit> vetVisits = new ArrayList<>();
 
     // 1. nincs visszatérési érték
     // 2. a metódus megegyezik az osztály nevével
@@ -48,5 +54,13 @@ public class Person {
                 break;
             }
         }
+    }
+
+    // static: független az őt létrehozó Person-tól
+    private static class VetVisit {
+        private String pet;
+        private LocalDate date;
+
+
     }
 }
