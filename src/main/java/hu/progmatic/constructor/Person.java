@@ -4,6 +4,8 @@ public class Person {
     private String name;
     private int birthYear;
     private int age;
+    private String[] pets;
+    private boolean hasCat;
 
     // 1. nincs visszatérési érték
     // 2. a metódus megegyezik az osztály nevével
@@ -34,5 +36,17 @@ public class Person {
         this.name = name;
         this.birthYear = birthYear;
         this.age = age;
+    }
+
+    public Person(String name, String[] pets) {
+        this.name = name;
+        this.pets = pets;
+
+        for (String pet : pets) {
+            if (pet.equals("macska")) {
+                this.hasCat = true;
+                break;
+            }
+        }
     }
 }
